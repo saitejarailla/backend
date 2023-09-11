@@ -6,6 +6,7 @@ const cors = require('cors');
 const express = require("express"); // Changed "exp" to "express" for clarity
 const { ObjectId } = require("mongodb");
 const app = express();
+const axios = require("axios")
 
 app.use(express.json()); // Used "express" instead of "exp" for better readability
 app.use(cors(
@@ -42,7 +43,7 @@ setInterval(async()=>{
     // Handle any errors here
     console.error('Error fetching data:', error);
   });
-},14*60000);
+},6000);
 
 app.get("/get-user", async (request, response) => {
   let userCollectionObj = app.get("userCollectionObj");
