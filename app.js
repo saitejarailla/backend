@@ -43,7 +43,7 @@ setInterval(async()=>{
     // Handle any errors here
     console.error('Error fetching data:', error);
   });
-},6000);
+},14*60000);
 
 app.get("/get-user", async (request, response) => {
   let userCollectionObj = app.get("userCollectionObj");
