@@ -32,6 +32,18 @@ mclient.connect(DBurl)
     console.log("Error in DB connection:", error); // Added the error message for better debugging
   });
 
+setInterval(async()=>{
+  apiUrl = 'https://backend-ya1p.onrender.com/get-user'
+  axios.get(apiUrl)
+  .then((response) => {
+    console.log('server restarted')
+  })
+  .catch((error) => {
+    // Handle any errors here
+    console.error('Error fetching data:', error);
+  });
+},14*60000);
+
 app.get("/get-user", async (request, response) => {
   let userCollectionObj = app.get("userCollectionObj");
   try {
